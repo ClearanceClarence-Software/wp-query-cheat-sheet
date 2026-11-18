@@ -18,7 +18,8 @@ Every parameter you can pass to `new WP_Query()`, grouped by what it does, with 
 - Notes on common pitfalls, such as an empty `post__in` returning every post, or `offset` breaking pagination
 - A filter box (press `/`) to find a parameter fast
 - A [playground](https://clearanceclarence-software.github.io/wp-query-cheat-sheet/playground.html) that runs your `$args` against a real WordPress in the browser, using [WordPress Playground](https://wordpress.org/playground/). It shows the matching posts, the SQL WordPress generated, the resolved query vars, and warnings for common mistakes. Every example on the cheat sheet has a **Try it** link.
-- [`wp-query-cheat-sheet.php`](wp-query-cheat-sheet.php): every parameter in one PHP array, for pasting into your editor
+- An **Arrays** switch to show every example with `array()` (WordPress coding standards) or short `[]` syntax. The choice is remembered and carries over to the playground.
+- [`wp-query-cheat-sheet.php`](wp-query-cheat-sheet.php): every parameter in one PHP array, for pasting into your editor. Also available with short arrays: [`wp-query-cheat-sheet-short-arrays.php`](wp-query-cheat-sheet-short-arrays.php)
 
 ## Contributing
 

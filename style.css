@@ -213,6 +213,41 @@ p code, td code, dd code, li code, .note code {
 }
 .search input:focus + kbd { opacity: 0; }
 
+/* Array syntax switch: only one variant of each code block is shown */
+html:not(.short-arrays) .syn-short,
+html.short-arrays .syn-long { display: none !important; }
+
+.syntax {
+  display: flex; align-items: center; gap: 0.25rem;
+  margin: -0.4rem 0 1.25rem;
+  padding: 0.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.syntax span {
+  flex: 1;
+  padding-left: 0.5rem;
+  font: 600 0.7rem/1 var(--mono);
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--faint);
+}
+.syntax button {
+  padding: 0.35rem 0.65rem;
+  font: 600 0.8rem/1 var(--mono);
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.syntax button:hover { color: var(--text); }
+.syntax button[aria-pressed="true"] {
+  color: var(--accent);
+  background: rgba(59, 130, 246, 0.14);
+  border-color: rgba(59, 130, 246, 0.45);
+}
+
 .toc ol { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--line-soft); }
 .toc li a {
   display: flex; align-items: baseline; gap: 0.6rem;
@@ -569,6 +604,7 @@ body.filtering #usage { display: none; }
 
 .pg-toolbar { display: flex; gap: 0.8rem; flex-wrap: wrap; }
 .pg-field { display: flex; flex-direction: column; gap: 0.3rem; flex: 1 1 12rem; }
+.pg-field.pg-narrow { flex: 0 1 7rem; }
 .pg-field span {
   font: 600 0.7rem/1 var(--mono);
   text-transform: uppercase; letter-spacing: 0.1em; color: var(--faint);
@@ -780,6 +816,7 @@ body.filtering #usage { display: none; }
   }
   .search { margin-bottom: 0.6rem; }
   .search kbd { display: none; }
+  .syntax { margin: 0 0 0.6rem; }
   .toc ol {
     display: flex; gap: 0.4rem;
     overflow-x: auto; border-left: 0;
