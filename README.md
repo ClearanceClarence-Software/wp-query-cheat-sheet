@@ -22,7 +22,7 @@ Every parameter you can pass to `new WP_Query()`, grouped by what it does, with 
 
 ## Contributing
 
-Spotted something wrong or out of date? [Open an issue](https://github.com/ClearanceClarence-Software/wp-query-cheat-sheet/issues) or send a pull request. Please check claims against [WordPress core source](https://github.com/WordPress/wordpress-develop/blob/trunk/src/wp-includes/class-wp-query.php) or the [official WP_Query docs](https://developer.wordpress.org/reference/classes/wp_query/).
+Spotted something wrong or out of date? [Open an issue](https://github.com/ClearanceClarence-Software/wp-query-cheat-sheet/issues/new/choose); there are forms for wrong information, missing parameters and playground problems. See the [contributing guide](.github/CONTRIBUTING.md) for details.
 
 ## Credits
 

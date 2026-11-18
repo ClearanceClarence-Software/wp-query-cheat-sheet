@@ -1,0 +1,53 @@
+name: Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: PHP syntax of the one-file version
+        run: php -l wp-query-cheat-sheet.php
+
+      - name: Web manifest is valid JSON
+        run: python3 -m json.tool site.webmanifest > /dev/null
+
+      - name: Structured data is valid JSON
+        run: |
+          python3 - <<'PY'
+          import json, re, sys
+          ok = True
+          for page in ("index.html", "playground.html"):
+              html = open(page, encoding="utf-8").read()
+              blocks = re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)
+              if not blocks:
+                  print(f"{page}: no structured data found"); ok = False
+              for block in blocks:
+                  try:
+                      json.loads(block)
+                  except ValueError as e:
+                      print(f"{page}: invalid JSON-LD: {e}"); ok = False
+          sys.exit(0 if ok else 1)
+          PY
+
+      - name: Local files referenced by the pages exist
+        run: |
+          python3 - <<'PY'
+          import os, re, sys
+          missing = []
+          for page in ("index.html", "playground.html"):
+              html = open(page, encoding="utf-8").read()
+              for ref in re.findall(r'(?:href|src)="([^"#:]+)"', html):
+                  if ref and not os.path.exists(ref):
+                      missing.append(f"{page}: {ref}")
+          print("\n".join(missing) or "All local references found.")
+          sys.exit(1 if missing else 0)
+          PY

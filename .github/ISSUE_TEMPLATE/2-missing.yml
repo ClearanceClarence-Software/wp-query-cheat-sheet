@@ -1,0 +1,60 @@
+name: Missing parameter, value or example
+description: Suggest something the cheat sheet should cover but doesn't.
+title: "[Missing]: "
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What's missing?
+      options:
+        - A parameter or key
+        - An allowed value
+        - An example
+        - A note about a pitfall
+        - Something else
+    validations:
+      required: true
+  - type: dropdown
+    id: section
+    attributes:
+      label: Section
+      description: Where would it belong?
+      options:
+        - "Basic usage"
+        - "Author"
+        - "Category"
+        - "Tag"
+        - "Taxonomy"
+        - "Post & Page"
+        - "Password"
+        - "Post Type"
+        - "Post Status"
+        - "Comment"
+        - "Pagination"
+        - "Order & Orderby"
+        - "Date"
+        - "Custom Field"
+        - "Permission"
+        - "Mime Type"
+        - "Caching"
+        - "Search"
+        - "Return Fields"
+        - "Filters"
+        - "One-file version (wp-query-cheat-sheet.php)"
+        - "Other / not sure"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What should be added, and why is it useful? Code examples welcome.
+      render: markdown
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: Link to WordPress core source or the official documentation, if you have one.

@@ -1,0 +1,72 @@
+name: Wrong or outdated information
+description: A parameter, value, default or example on the cheat sheet is incorrect or out of date.
+title: "[Content]: "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep the cheat sheet accurate. A link to WordPress core source or the official docs makes a fix much faster.
+  - type: dropdown
+    id: section
+    attributes:
+      label: Section
+      description: Where on the cheat sheet is the problem?
+      options:
+        - "Basic usage"
+        - "Author"
+        - "Category"
+        - "Tag"
+        - "Taxonomy"
+        - "Post & Page"
+        - "Password"
+        - "Post Type"
+        - "Post Status"
+        - "Comment"
+        - "Pagination"
+        - "Order & Orderby"
+        - "Date"
+        - "Custom Field"
+        - "Permission"
+        - "Mime Type"
+        - "Caching"
+        - "Search"
+        - "Return Fields"
+        - "Filters"
+        - "One-file version (wp-query-cheat-sheet.php)"
+        - "Other / not sure"
+    validations:
+      required: true
+  - type: input
+    id: parameter
+    attributes:
+      label: Parameter or value
+      description: The parameter, key or value that is wrong.
+      placeholder: "e.g. meta_compare_key"
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What the cheat sheet says
+      description: Quote or describe the current text.
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: What it should say
+      description: The correct behavior, and the WordPress version it applies to if it changed.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: Link to WordPress core source, a Trac ticket or changeset, or the official documentation.
+      placeholder: "https://github.com/WordPress/wordpress-develop/blob/trunk/src/wp-includes/class-wp-query.php#L..."
+    validations:
+      required: true
+  - type: input
+    id: playground
+    attributes:
+      label: Playground link (optional)
+      description: If you reproduced it in the playground, paste the link from "Copy link".

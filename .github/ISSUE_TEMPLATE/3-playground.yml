@@ -1,0 +1,54 @@
+name: Playground problem
+description: The playground won't start, gives a wrong result, or misbehaves.
+title: "[Playground]: "
+labels: ["bug", "playground"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The playground runs WordPress in your browser through [WordPress Playground](https://wordpress.org/playground/). If WordPress won't start at all, please first check that [playground.wordpress.net](https://playground.wordpress.net/) works in the same browser.
+  - type: dropdown
+    id: type
+    attributes:
+      label: What went wrong?
+      options:
+        - WordPress won't start
+        - A query gives a wrong or unexpected result
+        - A warning is wrong or missing
+        - The page looks or behaves wrong
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Playground link
+      description: Click "Copy link" in the playground and paste it here, so we can run the same query.
+      placeholder: "https://clearanceclarence-software.github.io/wp-query-cheat-sheet/playground.html#code=..."
+  - type: dropdown
+    id: runas
+    attributes:
+      label: Run as
+      options:
+        - Visitor (logged out)
+        - Admin
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: "e.g. Firefox 146 on Windows 11"
+    validations:
+      required: true
+  - type: textarea
+    id: console
+    attributes:
+      label: Console errors (optional)
+      description: Open the browser's developer tools (F12), go to Console, and paste any red errors.
+      render: text

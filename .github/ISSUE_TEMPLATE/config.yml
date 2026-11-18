@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Help with your own WP_Query
+    url: https://wordpress.org/support/forum/wp-advanced/
+    about: For help with a query on your own site, the WordPress support forums are the best place to ask.
+  - name: Official WP_Query documentation
+    url: https://developer.wordpress.org/reference/classes/wp_query/
+    about: The full reference on developer.wordpress.org.
+  - name: WordPress Playground issues
+    url: https://github.com/WordPress/wordpress-playground/issues
+    about: Problems with WordPress Playground itself, rather than this site's playground page.
