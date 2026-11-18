@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="en-US">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WP_Query Playground | WP_Query Cheat Sheet</title>
-  <meta name="description"
-    content="Run WP_Query arguments against a real WordPress in your browser and see the posts, the SQL, and warnings about common mistakes.">
+  <meta name="description" content="Run WP_Query arguments against a real WordPress in your browser and see the posts, the SQL, and warnings about common mistakes.">
   <meta property="og:title" content="WP_Query Playground">
-  <meta property="og:description"
-    content="Run WP_Query arguments against a real WordPress in your browser and see the posts, the SQL, and warnings about common mistakes.">
+  <meta property="og:description" content="Run WP_Query arguments against a real WordPress in your browser and see the posts, the SQL, and warnings about common mistakes.">
   <meta property="og:url" content="https://clearanceclarence-software.github.io/wp-query-cheat-sheet/playground.html">
+  <meta property="og:site_name" content="WP_Query Cheat Sheet">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://clearanceclarence-software.github.io/wp-query-cheat-sheet/assets/og-playground.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="WP_Query playground: run queries against a real WordPress in your browser.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WP_Query Playground">
+  <meta name="twitter:description" content="Run WP_Query arguments against a real WordPress in your browser and see the posts, the SQL, and warnings about common mistakes.">
+  <meta name="twitter:image" content="https://clearanceclarence-software.github.io/wp-query-cheat-sheet/assets/og-playground.png">
+  <meta name="twitter:image:alt" content="WP_Query playground: run queries against a real WordPress in your browser.">
   <link rel="canonical" href="https://clearanceclarence-software.github.io/wp-query-cheat-sheet/playground.html">
-  <link rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 28 9v14l-12 7L4 23V9z' fill='%231e40af'/%3E%3Cpath d='M16 7l8 4.6v9.2L16 25.4 8 20.8v-9.2z' fill='%2393c5fd'/%3E%3C/svg%3E">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"WP_Query Playground","url":"https://clearanceclarence-software.github.io/wp-query-cheat-sheet/playground.html","description":"Run WP_Query arguments against a real WordPress in your browser.","applicationCategory":"DeveloperApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"CC Software","url":"https://github.com/ClearanceClarence-Software"}}</script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#16171e">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="pg-body">
   <a class="skip" href="#editor">Skip to editor</a>
 
   <header class="pg-top">
-    <a class="pg-brand" href="./"><span class="mark" aria-hidden="true"></span>WP_Query <span>cheat sheet</span></a>
+    <a class="pg-brand" href="./"><img class="mark" src="assets/mark.svg" alt="" width="16" height="16">WP_Query <span>cheat sheet</span></a>
     <h1>Playground</h1>
     <div class="pg-boot" id="boot" role="status" aria-live="polite">
       <span class="dot" aria-hidden="true"></span><span id="boot-text">Starting WordPress…</span>
@@ -50,8 +61,7 @@
 
       <div class="pg-editor-wrap">
         <div class="pg-gutter" id="gutter" aria-hidden="true"></div>
-        <textarea id="editor" spellcheck="false" autocapitalize="off" autocomplete="off"
-          aria-label="PHP code that sets $args"></textarea>
+        <textarea id="editor" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="PHP code that sets $args"></textarea>
       </div>
 
       <div class="pg-actions">
@@ -60,8 +70,7 @@
         <button class="pg-ghost" id="reset" type="button">Reset</button>
       </div>
 
-      <p class="pg-hint">Set <code>$args</code> to an array, or build <code>$query = new WP_Query( … )</code> yourself.
-        The code runs as PHP inside a real WordPress 7.1 running in your browser. Nothing is sent to a server.</p>
+      <p class="pg-hint">Set <code>$args</code> to an array, or build <code>$query = new WP_Query( … )</code> yourself. The code runs as PHP inside a real WordPress 7.1 running in your browser. Nothing is sent to a server.</p>
     </section>
 
     <section class="pg-pane pg-output" aria-label="Result">
@@ -83,28 +92,17 @@
       </div>
 
       <div class="pg-panel" data-panel="results">
-        <div id="results">
-          <p class="pg-empty">Run a query to see the matching posts.</p>
-        </div>
+        <div id="results"><p class="pg-empty">Run a query to see the matching posts.</p></div>
       </div>
       <div class="pg-panel" data-panel="sql" hidden>
-        <figure class="code">
-          <div class="code-head"><span>$query-&gt;request</span><button class="copy" type="button">Copy</button></div>
-          <pre><code id="sql">Run a query to see the SQL WordPress generated.</code></pre>
-        </figure>
+        <figure class="code"><div class="code-head"><span>$query-&gt;request</span><button class="copy" type="button">Copy</button></div><pre><code id="sql">Run a query to see the SQL WordPress generated.</code></pre></figure>
       </div>
       <div class="pg-panel" data-panel="vars" hidden>
         <p class="pg-hint">Every query var after WordPress filled in its defaults. Empty values are left out.</p>
-        <figure class="code">
-          <div class="code-head"><span>$query-&gt;query_vars</span><button class="copy" type="button">Copy</button>
-          </div>
-          <pre><code id="vars">Run a query first.</code></pre>
-        </figure>
+        <figure class="code"><div class="code-head"><span>$query-&gt;query_vars</span><button class="copy" type="button">Copy</button></div><pre><code id="vars">Run a query first.</code></pre></figure>
       </div>
       <div class="pg-panel" data-panel="data" hidden>
-        <div id="data">
-          <p class="pg-empty">Loading once WordPress is ready…</p>
-        </div>
+        <div id="data"><p class="pg-empty">Loading once WordPress is ready…</p></div>
       </div>
       <div class="pg-panel pg-site" data-panel="site">
         <p class="pg-hint">The WordPress site your queries run against.</p>
@@ -115,213 +113,212 @@
 
   <footer class="pg-foot">
     Powered by <a href="https://wordpress.org/playground/" target="_blank" rel="noopener">WordPress Playground</a>.
-    Part of the <a href="./">WP_Query Cheat Sheet</a>, a <a href="https://github.com/ClearanceClarence-Software">CC
-      Software</a> project.
+    Part of the <a href="./">WP_Query Cheat Sheet</a>, a <a href="https://github.com/ClearanceClarence-Software">CC Software</a> project.
   </footer>
 
   <script type="module">
-    const MU_PLUGIN = "<?php\n/**\n * Plugin Name: WP_Query Cheat Sheet playground content types\n */\nadd_action( 'init', function () {\n\tregister_post_type( 'movie', array(\n\t\t'label'       => 'Movies',\n\t\t'public'      => true,\n\t\t'has_archive' => true,\n\t\t'supports'    => array( 'title', 'editor', 'custom-fields', 'comments' ),\n\t\t'show_in_rest' => true,\n\t) );\n\tregister_taxonomy( 'genre', array( 'movie' ), array(\n\t\t'label'        => 'Genres',\n\t\t'hierarchical' => true,\n\t\t'public'       => true,\n\t\t'show_in_rest' => true,\n\t) );\n\tregister_taxonomy( 'color', array( 'post', 'movie' ), array(\n\t\t'label'        => 'Colors',\n\t\t'hierarchical' => false,\n\t\t'public'       => true,\n\t\t'show_in_rest' => true,\n\t) );\n} );\n";
-    const SEED = "<?php\nrequire_once '__WP_LOAD__';\nif ( get_option( 'qcs_seeded' ) ) { return; }\n\n// Start from a clean slate.\nforeach ( get_posts( array( 'post_type' => 'any', 'post_status' => 'any', 'numberposts' => -1, 'fields' => 'ids' ) ) as $id ) {\n\twp_delete_post( $id, true );\n}\n\n$users = array();\nforeach ( array( array( 'jane', 'Jane Doe', 'editor' ), array( 'sam', 'Sam Lee', 'author' ) ) as $u ) {\n\t$users[ $u[0] ] = wp_insert_user( array(\n\t\t'user_login'    => $u[0],\n\t\t'user_nicename' => $u[0],\n\t\t'display_name'  => $u[1],\n\t\t'user_pass'     => wp_generate_password(),\n\t\t'role'          => $u[2],\n\t) );\n}\n$authors = array( 1, $users['jane'], $users['sam'] );\n\n$cat = array();\nforeach ( array( 'News', 'Staff', 'Reviews' ) as $name ) {\n\t$cat[ $name ] = wp_insert_term( $name, 'category' )['term_id'];\n}\n$cat['Films'] = wp_insert_term( 'Films', 'category', array( 'parent' => $cat['Reviews'] ) )['term_id'];\nwp_update_term( 1, 'category', array( 'name' => 'Uncategorized' ) );\n\nforeach ( array( 'Action', 'Drama', 'Comedy' ) as $name ) {\n\twp_insert_term( $name, 'genre' );\n}\n\n$titles = array(\n\t'Hello World', 'Choosing a sofa that lasts', 'Pillow talk: a buyer\\'s guide', 'Meet the new editor',\n\t'Bread baking for beginners', 'Ten weeknight recipes', 'Our office move', 'Review: The Long Night',\n\t'Review: Paper Moons', 'Spring sale starts today', 'Why we switched to SQLite', 'Staff picks for summer',\n\t'Cooking with cast iron', 'Red, blue, and everything in between', 'Annual report highlights',\n\t'How we test pillows', 'Sofa or sectional?', 'A short history of the loop', 'Winter newsletter',\n\t'Behind the scenes', 'Five films to watch', 'Baking sourdough at home', 'Ask the editor', 'Year in review',\n);\n$tag_sets  = array( array( 'cooking' ), array( 'red' ), array( 'blue' ), array( 'red', 'blue' ), array( 'baking', 'cooking' ), array() );\n$cat_sets  = array( array( $cat['News'] ), array( $cat['Staff'] ), array( $cat['Reviews'] ), array( $cat['Films'] ), array( $cat['News'], $cat['Staff'] ), array( 1 ) );\n$colors    = array( 'red', 'blue', 'green' );\n$post_ids  = array();\n\nforeach ( $titles as $i => $title ) {\n\t$status = 'publish';\n\t$extra  = array();\n\tif ( 20 === $i || 21 === $i ) {\n\t\t$status = 'draft';\n\t} elseif ( 22 === $i ) {\n\t\t$status = 'private';\n\t} elseif ( 23 === $i ) {\n\t\t$status = 'future';\n\t}\n\t// Spread dates from 2024 to 2026, newest last.\n\t$date = 23 === $i ? gmdate( 'Y-m-d H:i:s', time() + 30 * DAY_IN_SECONDS ) : gmdate( 'Y-m-d H:i:s', strtotime( '2024-01-08 09:00:00' ) + $i * 33 * DAY_IN_SECONDS + $i * 3700 );\n\t$id = wp_insert_post( array(\n\t\t'post_title'     => $title,\n\t\t'post_name'      => sanitize_title( $title ),\n\t\t'post_content'   => \"<!-- wp:paragraph --><p>{$title}. Sample content for the WP_Query Cheat Sheet playground\" . ( 0 === $i % 4 ? ', mentioning a pillow and a sofa' : '' ) . '.<\/p><!-- /wp:paragraph -->',\n\t\t'post_excerpt'   => 0 === $i % 3 ? \"A short excerpt about {$title}.\" : '',\n\t\t'post_status'    => $status,\n\t\t'post_date'      => $date,\n\t\t'post_date_gmt'  => $date,\n\t\t'post_author'    => $authors[ $i % 3 ],\n\t\t'post_category'  => $cat_sets[ $i % 6 ],\n\t\t'tags_input'     => $tag_sets[ $i % 6 ],\n\t\t'comment_status' => 0 === $i % 5 ? 'closed' : 'open',\n\t\t'post_password'  => 7 === $i ? 'multi-pass' : '',\n\t\t'meta_input'     => array(\n\t\t\t'price'    => ( ( $i * 37 ) % 290 ) + 5,\n\t\t\t'color'    => $colors[ $i % 3 ],\n\t\t\t'featured' => 0 === $i % 4 ? 'yes' : 'no',\n\t\t),\n\t), true );\n\twp_set_object_terms( $id, $colors[ $i % 3 ], 'color' );\n\tfor ( $c = 0; $c < ( $i * 7 ) % 13; $c++ ) {\n\t\twp_insert_comment( array(\n\t\t\t'comment_post_ID'  => $id,\n\t\t\t'comment_author'   => 'Reader ' . ( $c + 1 ),\n\t\t\t'comment_content'  => 'Nice post.',\n\t\t\t'comment_approved' => 1,\n\t\t) );\n\t}\n\t$post_ids[] = $id;\n}\nupdate_option( 'sticky_posts', array( $post_ids[4] ) );\n\n$pages = array();\nforeach ( array( array( 'About', 0, 0 ), array( 'Contact', 0, 1 ), array( 'Team', 0, 2 ), array( 'Privacy Policy', 0, 9 ) ) as $p ) {\n\t$pages[ $p[0] ] = wp_insert_post( array( 'post_type' => 'page', 'post_status' => 'publish', 'post_title' => $p[0], 'menu_order' => $p[2] ) );\n}\nforeach ( array( 'Canada', 'Norway' ) as $n => $child ) {\n\twp_insert_post( array( 'post_type' => 'page', 'post_status' => 'publish', 'post_title' => $child, 'post_parent' => $pages['Contact'], 'menu_order' => $n ) );\n}\nwp_insert_post( array( 'post_type' => 'page', 'post_status' => 'draft', 'post_title' => 'Careers (draft)' ) );\n\n$movies = array( array( 'The Long Night', 'Drama', 8.1, '1999-10-01' ), array( 'Paper Moons', 'Comedy', 7.2, '2004-03-12' ), array( 'Fast Lane', 'Action', 6.4, '2011-07-22' ), array( 'Quiet Harbor', 'Drama', 7.8, '2016-01-15' ), array( 'Laugh Track', 'Comedy', 5.9, '2019-05-03' ), array( 'Iron Coast', 'Action', 7.0, '2023-09-29' ) );\nforeach ( $movies as $n => $m ) {\n\t$id = wp_insert_post( array(\n\t\t'post_type'   => 'movie',\n\t\t'post_status' => 'publish',\n\t\t'post_title'  => $m[0],\n\t\t'post_date'   => gmdate( 'Y-m-d H:i:s', strtotime( '2025-02-01' ) + $n * 9 * DAY_IN_SECONDS ),\n\t\t'meta_input'  => array( 'rating' => $m[2], 'release_date' => $m[3] ),\n\t) );\n\twp_set_object_terms( $id, $m[1], 'genre' );\n\twp_set_object_terms( $id, $colors[ $n % 3 ], 'color' );\n}\n\nforeach ( array( array( 'Team photo', 'image/jpeg' ), array( 'Office map', 'image/png' ), array( 'Annual report', 'application/pdf' ) ) as $a ) {\n\twp_insert_attachment( array( 'post_title' => $a[0], 'post_mime_type' => $a[1], 'post_status' => 'inherit', 'guid' => home_url( '/' . sanitize_title( $a[0] ) ) ), false, $post_ids[14] );\n}\n\nupdate_option( 'qcs_seeded', 1 );\necho 'seeded';\n";
-    const RUNNER = "<?php\n// Runs visitor code that sets $args (or builds $query) and reports the result as JSON.\ndefine( 'QCS_MARK', '@@QCS@@' );\nrequire_once '__WP_LOAD__';\nwp_set_current_user( (int) '__USER__' );\n\n$qcs_code    = base64_decode( '__CODE__' );\n$qcs_known   = json_decode( base64_decode( '__KNOWN__' ), true );\n$qcs_notices = array();\n\nset_error_handler( function ( $no, $str, $file, $line ) use ( &$qcs_notices ) {\n\t$qcs_notices[] = array( 'type' => 'php', 'text' => $str . ( false !== strpos( $file, 'eval' ) ? \" (your code, line {$line})\" : '' ) );\n\treturn true;\n} );\nadd_action( 'doing_it_wrong_run', function ( $fn, $msg ) use ( &$qcs_notices ) {\n\t$qcs_notices[] = array( 'type' => 'wp', 'text' => wp_strip_all_tags( \"{$fn}: {$msg}\" ) );\n}, 10, 2 );\nadd_action( 'deprecated_argument_run', function ( $fn, $msg ) use ( &$qcs_notices ) {\n\t$qcs_notices[] = array( 'type' => 'wp', 'text' => wp_strip_all_tags( \"{$fn}: {$msg}\" ) );\n}, 10, 2 );\n\n$qcs_out = array( 'ok' => false );\n\ntry {\n\t$qcs_scope = ( function ( $__code ) {\n\t\teval( $__code );\n\t\treturn array(\n\t\t\t'args'  => isset( $args ) ? $args : null,\n\t\t\t'query' => isset( $query ) && $query instanceof WP_Query ? $query : null,\n\t\t);\n\t} )( preg_replace( '/^\\s*<\\?php/', '', $qcs_code ) );\n\n\t$args  = $qcs_scope['args'];\n\t$query = $qcs_scope['query'];\n\n\tif ( null === $query && ! is_array( $args ) && ! is_string( $args ) ) {\n\t\tthrow new Exception( 'Set $args to an array (or build $query = new WP_Query( ... )).' );\n\t}\n\n\t$warnings = array();\n\tif ( is_array( $args ) ) {\n\t\t$warnings = qcs_lint( $args, $qcs_known );\n\t}\n\n\t$ms = null;\n\tif ( null === $query ) {\n\t\t$start = microtime( true );\n\t\t$query = new WP_Query( $args );\n\t\t$ms    = round( ( microtime( true ) - $start ) * 1000, 1 );\n\t}\n\n\t$rows = array();\n\tforeach ( array_slice( $query->posts, 0, 100 ) as $p ) {\n\t\t$p = is_object( $p ) && isset( $p->post_title ) ? $p : get_post( is_object( $p ) ? $p->ID : $p );\n\t\tif ( ! $p ) {\n\t\t\tcontinue;\n\t\t}\n\t\t$rows[] = array(\n\t\t\t'ID'            => $p->ID,\n\t\t\t'title'         => $p->post_title,\n\t\t\t'type'          => $p->post_type,\n\t\t\t'status'        => $p->post_status,\n\t\t\t'date'          => $p->post_date,\n\t\t\t'author'        => get_the_author_meta( 'user_login', $p->post_author ),\n\t\t\t'parent'        => (int) $p->post_parent,\n\t\t\t'menu_order'    => (int) $p->menu_order,\n\t\t\t'comment_count' => (int) $p->comment_count,\n\t\t\t'sticky'        => is_sticky( $p->ID ),\n\t\t);\n\t}\n\n\t$raw = $query->posts;\n\tif ( 'ids' === $query->get( 'fields' ) || 'id=>parent' === $query->get( 'fields' ) ) {\n\t\t$raw_preview = array_slice( array_map( function ( $p ) {\n\t\t\treturn is_object( $p ) ? array( 'ID' => (int) $p->ID, 'post_parent' => (int) $p->post_parent ) : (int) $p;\n\t\t}, $raw ), 0, 100 );\n\t} else {\n\t\t$raw_preview = null;\n\t}\n\n\t$qcs_out = array(\n\t\t'ok'            => true,\n\t\t'rows'          => $rows,\n\t\t'raw'           => $raw_preview,\n\t\t'fields'        => $query->get( 'fields' ),\n\t\t'post_count'    => $query->post_count,\n\t\t'found_posts'   => (int) $query->found_posts,\n\t\t'max_num_pages' => (int) $query->max_num_pages,\n\t\t'sql'           => $GLOBALS['wpdb']->remove_placeholder_escape( (string) $query->request ),\n\t\t'ms'            => $ms,\n\t\t'user'          => get_current_user_id() ? wp_get_current_user()->user_login : null,\n\t\t'warnings'      => $warnings,\n\t\t'query_vars'    => array_filter( $query->query_vars, function ( $v ) {\n\t\t\treturn '' !== $v && array() !== $v && null !== $v && false !== $v;\n\t\t} ),\n\t);\n} catch ( ParseError $e ) {\n\t$qcs_out = array( 'ok' => false, 'error' => 'Syntax error: ' . $e->getMessage() . ' (line ' . $e->getLine() . ')' );\n} catch ( Throwable $e ) {\n\t$qcs_out = array( 'ok' => false, 'error' => get_class( $e ) . ': ' . $e->getMessage() );\n}\n\n$qcs_out['notices'] = $qcs_notices;\necho QCS_MARK . wp_json_encode( $qcs_out, JSON_PARTIAL_OUTPUT_ON_ERROR | JSON_INVALID_UTF8_SUBSTITUTE );\n\n/**\n * Flags common mistakes in a WP_Query argument array.\n */\nfunction qcs_lint( $a, $known ) {\n\t$w    = array();\n\t$add  = function ( $level, $text ) use ( &$w ) {\n\t\t$w[] = array( 'level' => $level, 'text' => $text );\n\t};\n\t$deprecated = array(\n\t\t'showposts'        => 'posts_per_page',\n\t\t'caller_get_posts' => 'ignore_sticky_posts',\n\t\t'numberposts'      => 'posts_per_page (numberposts only works in get_posts())',\n\t\t'category'         => 'cat (category only works in get_posts())',\n\t\t'include'          => 'post__in (include only works in get_posts())',\n\t\t'exclude'          => 'post__not_in (exclude only works in get_posts())',\n\t);\n\tforeach ( array_keys( $a ) as $key ) {\n\t\tif ( isset( $deprecated[ $key ] ) ) {\n\t\t\t$add( 'warn', \"'{$key}' is not a WP_Query parameter. Use {$deprecated[ $key ]}.\" );\n\t\t} elseif ( is_string( $key ) && ! in_array( $key, $known, true ) ) {\n\t\t\t$close = '';\n\t\t\tforeach ( $known as $k ) {\n\t\t\t\tif ( levenshtein( $key, $k ) <= 2 ) {\n\t\t\t\t\t$close = \" Did you mean '{$k}'?\";\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t}\n\t\t\t$add( 'warn', \"Unknown parameter '{$key}'. WP_Query ignores it.{$close}\" );\n\t\t}\n\t}\n\t$has = function ( $k ) use ( $a ) {\n\t\treturn array_key_exists( $k, $a );\n\t};\n\tif ( $has( 'post__in' ) && is_array( $a['post__in'] ) && empty( $a['post__in'] ) ) {\n\t\t$add( 'warn', 'post__in is an empty array, so it is ignored and every post can match. Check for an empty list before querying.' );\n\t}\n\tif ( ! empty( $a['post__in'] ) && ! empty( $a['post__not_in'] ) ) {\n\t\t$add( 'warn', 'post__in and post__not_in are both set. post__in wins and post__not_in is ignored.' );\n\t}\n\tif ( $has( 'post__not_in' ) && is_string( $a['post__not_in'] ) ) {\n\t\t$add( 'warn', 'post__not_in must be an array; a comma-separated string does not work.' );\n\t}\n\tif ( ! empty( $a['offset'] ) && ! empty( $a['paged'] ) ) {\n\t\t$add( 'warn', 'offset overrides paged, so pagination will not work as expected.' );\n\t}\n\tif ( ! empty( $a['offset'] ) && isset( $a['posts_per_page'] ) && -1 === (int) $a['posts_per_page'] ) {\n\t\t$add( 'warn', 'offset is ignored when posts_per_page is -1.' );\n\t}\n\tforeach ( array( 'post_type', 'post_status' ) as $k ) {\n\t\tif ( $has( $k ) && is_array( $a[ $k ] ) && in_array( 'any', $a[ $k ], true ) ) {\n\t\t\t$add( 'warn', \"'any' cannot be used inside a {$k} array. Pass the string 'any' on its own.\" );\n\t\t}\n\t}\n\tif ( isset( $a['orderby'] ) && is_string( $a['orderby'] ) && preg_match( '/\\bmeta_value(_num)?\\b/', $a['orderby'] ) && empty( $a['meta_key'] ) && empty( $a['meta_query'] ) ) {\n\t\t$add( 'warn', 'Ordering by meta_value needs a meta_key (or a meta_query).' );\n\t}\n\tif ( $has( 'meta_value_num' ) ) {\n\t\t$add( 'warn', \"'meta_value_num' is an orderby value, not a parameter. To filter numerically, use meta_value with meta_type 'NUMERIC'.\" );\n\t}\n\tforeach ( array( 'tax_query' => 'taxonomy', 'meta_query' => 'key', 'date_query' => 'after' ) as $k => $clause_key ) {\n\t\tif ( $has( $k ) && is_array( $a[ $k ] ) && array_key_exists( $clause_key, $a[ $k ] ) ) {\n\t\t\t$add( 'warn', \"{$k} takes an array of clause arrays. Wrap your clause in another array( ... ).\" );\n\t\t}\n\t}\n\tif ( ! empty( $a['meta_query'] ) && is_array( $a['meta_query'] ) ) {\n\t\tarray_walk_recursive_clauses( $a['meta_query'], function ( $clause ) use ( $add ) {\n\t\t\tif ( isset( $clause['value'] ) && is_array( $clause['value'] ) ) {\n\t\t\t\t$cmp = strtoupper( $clause['compare'] ?? 'IN' );\n\t\t\t\tif ( ! in_array( $cmp, array( 'IN', 'NOT IN', 'BETWEEN', 'NOT BETWEEN' ), true ) ) {\n\t\t\t\t\t$add( 'warn', \"meta_query: an array value only works with IN, NOT IN, BETWEEN or NOT BETWEEN, not {$cmp}.\" );\n\t\t\t\t}\n\t\t\t}\n\t\t} );\n\t}\n\t$types = isset( $a['post_type'] ) ? (array) $a['post_type'] : array();\n\tif ( in_array( 'attachment', $types, true ) && ( empty( $a['post_status'] ) || ! array_intersect( (array) $a['post_status'], array( 'inherit', 'any' ) ) ) ) {\n\t\t$add( 'warn', \"Attachments have the status 'inherit'. Add 'post_status' => 'inherit' (or 'any'), or nothing will match.\" );\n\t}\n\tif ( ! empty( $a['no_found_rows'] ) ) {\n\t\t$add( 'info', 'no_found_rows is on, so found_posts and max_num_pages are 0.' );\n\t}\n\treturn $w;\n}\n\nfunction array_walk_recursive_clauses( $q, $cb ) {\n\tforeach ( $q as $k => $v ) {\n\t\tif ( 'relation' === $k || ! is_array( $v ) ) {\n\t\t\tcontinue;\n\t\t}\n\t\tif ( isset( $v['key'] ) || isset( $v['value'] ) || isset( $v['compare'] ) ) {\n\t\t\t$cb( $v );\n\t\t} else {\n\t\t\tarray_walk_recursive_clauses( $v, $cb );\n\t\t}\n\t}\n}\n";
-    const REFERENCE = "<?php\n// Lists IDs and slugs in the sample data so visitors can use them.\nrequire_once '__WP_LOAD__';\n$terms = function ( $tax ) {\n\treturn array_map( function ( $t ) {\n\t\treturn array( 'id' => $t->term_id, 'slug' => $t->slug, 'name' => $t->name, 'count' => $t->count, 'parent' => $t->parent );\n\t}, get_terms( array( 'taxonomy' => $tax, 'hide_empty' => false ) ) );\n};\n$posts = function ( $type ) {\n\treturn array_map( function ( $p ) {\n\t\treturn array( 'id' => $p->ID, 'title' => $p->post_title, 'status' => $p->post_status, 'parent' => $p->post_parent );\n\t}, get_posts( array( 'post_type' => $type, 'post_status' => 'any', 'numberposts' => -1, 'orderby' => 'ID', 'order' => 'ASC' ) ) );\n};\necho '@@QCS@@' . wp_json_encode( array(\n\t'users'    => array_map( function ( $u ) {\n\t\treturn array( 'id' => $u->ID, 'slug' => $u->user_nicename, 'name' => $u->display_name );\n\t}, get_users() ),\n\t'category' => $terms( 'category' ),\n\t'post_tag' => $terms( 'post_tag' ),\n\t'color'    => $terms( 'color' ),\n\t'genre'    => $terms( 'genre' ),\n\t'pages'    => $posts( 'page' ),\n\t'movies'   => $posts( 'movie' ),\n\t'sticky'   => get_option( 'sticky_posts' ),\n\t'meta'     => array( 'price (post, number 5-294)', 'color (post: red, blue, green)', 'featured (post: yes, no)', 'rating (movie, decimal)', 'release_date (movie, YYYY-MM-DD)' ),\n) );\n";
-    const KNOWN = ["attachment_id", "author", "author__in", "author__not_in", "author_name", "cache_results", "cat", "category__and", "category__in", "category__not_in", "category_name", "comment_count", "comment_status", "comments_per_page", "date_query", "day", "exact", "fields", "has_password", "hour", "ignore_sticky_posts", "lazy_load_term_meta", "m", "menu_order", "meta_compare", "meta_compare_key", "meta_key", "meta_query", "meta_type", "meta_type_key", "meta_value", "minute", "monthnum", "name", "no_found_rows", "nopaging", "offset", "order", "orderby", "p", "page", "page_id", "paged", "pagename", "perm", "ping_status", "post__in", "post__not_in", "post_mime_type", "post_name__in", "post_parent", "post_parent__in", "post_parent__not_in", "post_password", "post_status", "post_type", "posts_per_archive_page", "posts_per_page", "s", "search_columns", "second", "sentence", "suppress_filters", "tag", "tag__and", "tag__in", "tag__not_in", "tag_id", "tag_slug__and", "tag_slug__in", "tax_query", "title", "update_menu_item_cache", "update_post_meta_cache", "update_post_term_cache", "w", "year"];
-    const PRESETS = [{"title": "Latest posts", "code": "$args = array(\n  'post_type'      => 'post',\n  'posts_per_page' => 5,\n);"}, {"title": "Posts by an author", "code": "$args = array(\n  'author_name'    => 'jane',\n  'posts_per_page' => 10,\n);"}, {"title": "Category and tag", "code": "$args = array(\n  'category_name' => 'news',\n  'tag'           => 'cooking,baking', // any of these tags\n);"}, {"title": "Taxonomy: movies in a genre", "code": "$args = array(\n  'post_type' => 'movie',\n  'tax_query' => array(\n    array(\n      'taxonomy' => 'genre',\n      'field'    => 'slug',\n      'terms'    => array( 'drama', 'comedy' ),\n    ),\n  ),\n);"}, {"title": "Custom field: price range, cheapest first", "code": "$args = array(\n  'meta_query' => array(\n    'price_clause' => array(\n      'key'     => 'price',\n      'value'   => array( 50, 150 ),\n      'type'    => 'NUMERIC',\n      'compare' => 'BETWEEN',\n    ),\n  ),\n  'orderby' => 'price_clause',\n  'order'   => 'ASC',\n);"}, {"title": "Movies by rating", "code": "$args = array(\n  'post_type' => 'movie',\n  'meta_key'  => 'rating',\n  'orderby'   => 'meta_value_num',\n  'order'     => 'DESC',\n);"}, {"title": "Date range", "code": "$args = array(\n  'date_query' => array(\n    array(\n      'after'     => '2025-01-01',\n      'before'    => '2025-12-31',\n      'inclusive' => true,\n    ),\n  ),\n  'ignore_sticky_posts' => true,\n);"}, {"title": "Search titles only", "code": "$args = array(\n  's'              => 'pillow -sofa',\n  'search_columns' => array( 'post_title' ),\n);"}, {"title": "Child pages in menu order", "code": "$contact = get_page_by_path( 'contact' );\n\n$args = array(\n  'post_type'   => 'page',\n  'post_parent' => $contact->ID,\n  'orderby'     => 'menu_order',\n  'order'       => 'ASC',\n);"}, {"title": "Page 2 of the archive", "code": "$args = array(\n  'posts_per_page' => 5,\n  'paged'          => 2,\n);"}, {"title": "Drafts and scheduled posts (run as Admin)", "code": "$args = array(\n  'post_status' => array( 'draft', 'future', 'private' ),\n);"}, {"title": "Images from the media library", "code": "$args = array(\n  'post_type'      => 'attachment',\n  'post_status'    => 'inherit',\n  'post_mime_type' => 'image',\n);"}, {"title": "Lean query: IDs only", "code": "$args = array(\n  'fields'                 => 'ids',\n  'posts_per_page'         => 10,\n  'no_found_rows'          => true,\n  'update_post_meta_cache' => false,\n  'update_post_term_cache' => false,\n);"}, {"title": "Common mistakes", "code": "// Run this to see what the playground warns about.\n$args = array(\n  'post_typ'   => 'post',          // typo\n  'showposts'  => 3,               // old parameter name\n  'post__in'   => array(),         // empty: matches everything\n  'offset'     => 2,\n  'paged'      => 2,               // ignored because of offset\n  'meta_query' => array(           // missing the outer array\n    'key'   => 'price',\n    'value' => 100,\n  ),\n);"}];
-    const WP_LOAD = '/wordpress/wp-load.php';
-    const MARK = '@@QCS@@';
+  const MU_PLUGIN = "<?php\n/**\n * Plugin Name: WP_Query Cheat Sheet playground content types\n */\nadd_action( 'init', function () {\n\tregister_post_type( 'movie', array(\n\t\t'label'       => 'Movies',\n\t\t'public'      => true,\n\t\t'has_archive' => true,\n\t\t'supports'    => array( 'title', 'editor', 'custom-fields', 'comments' ),\n\t\t'show_in_rest' => true,\n\t) );\n\tregister_taxonomy( 'genre', array( 'movie' ), array(\n\t\t'label'        => 'Genres',\n\t\t'hierarchical' => true,\n\t\t'public'       => true,\n\t\t'show_in_rest' => true,\n\t) );\n\tregister_taxonomy( 'color', array( 'post', 'movie' ), array(\n\t\t'label'        => 'Colors',\n\t\t'hierarchical' => false,\n\t\t'public'       => true,\n\t\t'show_in_rest' => true,\n\t) );\n} );\n";
+  const SEED = "<?php\nrequire_once '__WP_LOAD__';\nif ( get_option( 'qcs_seeded' ) ) { return; }\n\n// Start from a clean slate.\nforeach ( get_posts( array( 'post_type' => 'any', 'post_status' => 'any', 'numberposts' => -1, 'fields' => 'ids' ) ) as $id ) {\n\twp_delete_post( $id, true );\n}\n\n$users = array();\nforeach ( array( array( 'jane', 'Jane Doe', 'editor' ), array( 'sam', 'Sam Lee', 'author' ) ) as $u ) {\n\t$users[ $u[0] ] = wp_insert_user( array(\n\t\t'user_login'    => $u[0],\n\t\t'user_nicename' => $u[0],\n\t\t'display_name'  => $u[1],\n\t\t'user_pass'     => wp_generate_password(),\n\t\t'role'          => $u[2],\n\t) );\n}\n$authors = array( 1, $users['jane'], $users['sam'] );\n\n$cat = array();\nforeach ( array( 'News', 'Staff', 'Reviews' ) as $name ) {\n\t$cat[ $name ] = wp_insert_term( $name, 'category' )['term_id'];\n}\n$cat['Films'] = wp_insert_term( 'Films', 'category', array( 'parent' => $cat['Reviews'] ) )['term_id'];\nwp_update_term( 1, 'category', array( 'name' => 'Uncategorized' ) );\n\nforeach ( array( 'Action', 'Drama', 'Comedy' ) as $name ) {\n\twp_insert_term( $name, 'genre' );\n}\n\n$titles = array(\n\t'Hello World', 'Choosing a sofa that lasts', 'Pillow talk: a buyer\\'s guide', 'Meet the new editor',\n\t'Bread baking for beginners', 'Ten weeknight recipes', 'Our office move', 'Review: The Long Night',\n\t'Review: Paper Moons', 'Spring sale starts today', 'Why we switched to SQLite', 'Staff picks for summer',\n\t'Cooking with cast iron', 'Red, blue, and everything in between', 'Annual report highlights',\n\t'How we test pillows', 'Sofa or sectional?', 'A short history of the loop', 'Winter newsletter',\n\t'Behind the scenes', 'Five films to watch', 'Baking sourdough at home', 'Ask the editor', 'Year in review',\n);\n$tag_sets  = array( array( 'cooking' ), array( 'red' ), array( 'blue' ), array( 'red', 'blue' ), array( 'baking', 'cooking' ), array() );\n$cat_sets  = array( array( $cat['News'] ), array( $cat['Staff'] ), array( $cat['Reviews'] ), array( $cat['Films'] ), array( $cat['News'], $cat['Staff'] ), array( 1 ) );\n$colors    = array( 'red', 'blue', 'green' );\n$post_ids  = array();\n\nforeach ( $titles as $i => $title ) {\n\t$status = 'publish';\n\t$extra  = array();\n\tif ( 20 === $i || 21 === $i ) {\n\t\t$status = 'draft';\n\t} elseif ( 22 === $i ) {\n\t\t$status = 'private';\n\t} elseif ( 23 === $i ) {\n\t\t$status = 'future';\n\t}\n\t// Spread dates from 2024 to 2026, newest last.\n\t$date = 23 === $i ? gmdate( 'Y-m-d H:i:s', time() + 30 * DAY_IN_SECONDS ) : gmdate( 'Y-m-d H:i:s', strtotime( '2024-01-08 09:00:00' ) + $i * 33 * DAY_IN_SECONDS + $i * 3700 );\n\t$id = wp_insert_post( array(\n\t\t'post_title'     => $title,\n\t\t'post_name'      => sanitize_title( $title ),\n\t\t'post_content'   => \"<!-- wp:paragraph --><p>{$title}. Sample content for the WP_Query Cheat Sheet playground\" . ( 0 === $i % 4 ? ', mentioning a pillow and a sofa' : '' ) . '.<\/p><!-- /wp:paragraph -->',\n\t\t'post_excerpt'   => 0 === $i % 3 ? \"A short excerpt about {$title}.\" : '',\n\t\t'post_status'    => $status,\n\t\t'post_date'      => $date,\n\t\t'post_date_gmt'  => $date,\n\t\t'post_author'    => $authors[ $i % 3 ],\n\t\t'post_category'  => $cat_sets[ $i % 6 ],\n\t\t'tags_input'     => $tag_sets[ $i % 6 ],\n\t\t'comment_status' => 0 === $i % 5 ? 'closed' : 'open',\n\t\t'post_password'  => 7 === $i ? 'multi-pass' : '',\n\t\t'meta_input'     => array(\n\t\t\t'price'    => ( ( $i * 37 ) % 290 ) + 5,\n\t\t\t'color'    => $colors[ $i % 3 ],\n\t\t\t'featured' => 0 === $i % 4 ? 'yes' : 'no',\n\t\t),\n\t), true );\n\twp_set_object_terms( $id, $colors[ $i % 3 ], 'color' );\n\tfor ( $c = 0; $c < ( $i * 7 ) % 13; $c++ ) {\n\t\twp_insert_comment( array(\n\t\t\t'comment_post_ID'  => $id,\n\t\t\t'comment_author'   => 'Reader ' . ( $c + 1 ),\n\t\t\t'comment_content'  => 'Nice post.',\n\t\t\t'comment_approved' => 1,\n\t\t) );\n\t}\n\t$post_ids[] = $id;\n}\nupdate_option( 'sticky_posts', array( $post_ids[4] ) );\n\n$pages = array();\nforeach ( array( array( 'About', 0, 0 ), array( 'Contact', 0, 1 ), array( 'Team', 0, 2 ), array( 'Privacy Policy', 0, 9 ) ) as $p ) {\n\t$pages[ $p[0] ] = wp_insert_post( array( 'post_type' => 'page', 'post_status' => 'publish', 'post_title' => $p[0], 'menu_order' => $p[2] ) );\n}\nforeach ( array( 'Canada', 'Norway' ) as $n => $child ) {\n\twp_insert_post( array( 'post_type' => 'page', 'post_status' => 'publish', 'post_title' => $child, 'post_parent' => $pages['Contact'], 'menu_order' => $n ) );\n}\nwp_insert_post( array( 'post_type' => 'page', 'post_status' => 'draft', 'post_title' => 'Careers (draft)' ) );\n\n$movies = array( array( 'The Long Night', 'Drama', 8.1, '1999-10-01' ), array( 'Paper Moons', 'Comedy', 7.2, '2004-03-12' ), array( 'Fast Lane', 'Action', 6.4, '2011-07-22' ), array( 'Quiet Harbor', 'Drama', 7.8, '2016-01-15' ), array( 'Laugh Track', 'Comedy', 5.9, '2019-05-03' ), array( 'Iron Coast', 'Action', 7.0, '2023-09-29' ) );\nforeach ( $movies as $n => $m ) {\n\t$id = wp_insert_post( array(\n\t\t'post_type'   => 'movie',\n\t\t'post_status' => 'publish',\n\t\t'post_title'  => $m[0],\n\t\t'post_date'   => gmdate( 'Y-m-d H:i:s', strtotime( '2025-02-01' ) + $n * 9 * DAY_IN_SECONDS ),\n\t\t'meta_input'  => array( 'rating' => $m[2], 'release_date' => $m[3] ),\n\t) );\n\twp_set_object_terms( $id, $m[1], 'genre' );\n\twp_set_object_terms( $id, $colors[ $n % 3 ], 'color' );\n}\n\nforeach ( array( array( 'Team photo', 'image/jpeg' ), array( 'Office map', 'image/png' ), array( 'Annual report', 'application/pdf' ) ) as $a ) {\n\twp_insert_attachment( array( 'post_title' => $a[0], 'post_mime_type' => $a[1], 'post_status' => 'inherit', 'guid' => home_url( '/' . sanitize_title( $a[0] ) ) ), false, $post_ids[14] );\n}\n\nupdate_option( 'qcs_seeded', 1 );\necho 'seeded';\n";
+  const RUNNER = "<?php\n// Runs visitor code that sets $args (or builds $query) and reports the result as JSON.\ndefine( 'QCS_MARK', '@@QCS@@' );\nrequire_once '__WP_LOAD__';\nwp_set_current_user( (int) '__USER__' );\n\n$qcs_code    = base64_decode( '__CODE__' );\n$qcs_known   = json_decode( base64_decode( '__KNOWN__' ), true );\n$qcs_notices = array();\n\nset_error_handler( function ( $no, $str, $file, $line ) use ( &$qcs_notices ) {\n\t$qcs_notices[] = array( 'type' => 'php', 'text' => $str . ( false !== strpos( $file, 'eval' ) ? \" (your code, line {$line})\" : '' ) );\n\treturn true;\n} );\nadd_action( 'doing_it_wrong_run', function ( $fn, $msg ) use ( &$qcs_notices ) {\n\t$qcs_notices[] = array( 'type' => 'wp', 'text' => wp_strip_all_tags( \"{$fn}: {$msg}\" ) );\n}, 10, 2 );\nadd_action( 'deprecated_argument_run', function ( $fn, $msg ) use ( &$qcs_notices ) {\n\t$qcs_notices[] = array( 'type' => 'wp', 'text' => wp_strip_all_tags( \"{$fn}: {$msg}\" ) );\n}, 10, 2 );\n\n$qcs_out = array( 'ok' => false );\n\ntry {\n\t$qcs_scope = ( function ( $__code ) {\n\t\teval( $__code );\n\t\treturn array(\n\t\t\t'args'  => isset( $args ) ? $args : null,\n\t\t\t'query' => isset( $query ) && $query instanceof WP_Query ? $query : null,\n\t\t);\n\t} )( preg_replace( '/^\\s*<\\?php/', '', $qcs_code ) );\n\n\t$args  = $qcs_scope['args'];\n\t$query = $qcs_scope['query'];\n\n\tif ( null === $query && ! is_array( $args ) && ! is_string( $args ) ) {\n\t\tthrow new Exception( 'Set $args to an array (or build $query = new WP_Query( ... )).' );\n\t}\n\n\t$warnings = array();\n\tif ( is_array( $args ) ) {\n\t\t$warnings = qcs_lint( $args, $qcs_known );\n\t}\n\n\t$ms = null;\n\tif ( null === $query ) {\n\t\t$start = microtime( true );\n\t\t$query = new WP_Query( $args );\n\t\t$ms    = round( ( microtime( true ) - $start ) * 1000, 1 );\n\t}\n\n\t$rows = array();\n\tforeach ( array_slice( $query->posts, 0, 100 ) as $p ) {\n\t\t$p = is_object( $p ) && isset( $p->post_title ) ? $p : get_post( is_object( $p ) ? $p->ID : $p );\n\t\tif ( ! $p ) {\n\t\t\tcontinue;\n\t\t}\n\t\t$rows[] = array(\n\t\t\t'ID'            => $p->ID,\n\t\t\t'title'         => $p->post_title,\n\t\t\t'type'          => $p->post_type,\n\t\t\t'status'        => $p->post_status,\n\t\t\t'date'          => $p->post_date,\n\t\t\t'author'        => get_the_author_meta( 'user_login', $p->post_author ),\n\t\t\t'parent'        => (int) $p->post_parent,\n\t\t\t'menu_order'    => (int) $p->menu_order,\n\t\t\t'comment_count' => (int) $p->comment_count,\n\t\t\t'sticky'        => is_sticky( $p->ID ),\n\t\t);\n\t}\n\n\t$raw = $query->posts;\n\tif ( 'ids' === $query->get( 'fields' ) || 'id=>parent' === $query->get( 'fields' ) ) {\n\t\t$raw_preview = array_slice( array_map( function ( $p ) {\n\t\t\treturn is_object( $p ) ? array( 'ID' => (int) $p->ID, 'post_parent' => (int) $p->post_parent ) : (int) $p;\n\t\t}, $raw ), 0, 100 );\n\t} else {\n\t\t$raw_preview = null;\n\t}\n\n\t$qcs_out = array(\n\t\t'ok'            => true,\n\t\t'rows'          => $rows,\n\t\t'raw'           => $raw_preview,\n\t\t'fields'        => $query->get( 'fields' ),\n\t\t'post_count'    => $query->post_count,\n\t\t'found_posts'   => (int) $query->found_posts,\n\t\t'max_num_pages' => (int) $query->max_num_pages,\n\t\t'sql'           => $GLOBALS['wpdb']->remove_placeholder_escape( (string) $query->request ),\n\t\t'ms'            => $ms,\n\t\t'user'          => get_current_user_id() ? wp_get_current_user()->user_login : null,\n\t\t'warnings'      => $warnings,\n\t\t'query_vars'    => array_filter( $query->query_vars, function ( $v ) {\n\t\t\treturn '' !== $v && array() !== $v && null !== $v && false !== $v;\n\t\t} ),\n\t);\n} catch ( ParseError $e ) {\n\t$qcs_out = array( 'ok' => false, 'error' => 'Syntax error: ' . $e->getMessage() . ' (line ' . $e->getLine() . ')' );\n} catch ( Throwable $e ) {\n\t$qcs_out = array( 'ok' => false, 'error' => get_class( $e ) . ': ' . $e->getMessage() );\n}\n\n$qcs_out['notices'] = $qcs_notices;\necho QCS_MARK . wp_json_encode( $qcs_out, JSON_PARTIAL_OUTPUT_ON_ERROR | JSON_INVALID_UTF8_SUBSTITUTE );\n\n/**\n * Flags common mistakes in a WP_Query argument array.\n */\nfunction qcs_lint( $a, $known ) {\n\t$w    = array();\n\t$add  = function ( $level, $text ) use ( &$w ) {\n\t\t$w[] = array( 'level' => $level, 'text' => $text );\n\t};\n\t$deprecated = array(\n\t\t'showposts'        => 'posts_per_page',\n\t\t'caller_get_posts' => 'ignore_sticky_posts',\n\t\t'numberposts'      => 'posts_per_page (numberposts only works in get_posts())',\n\t\t'category'         => 'cat (category only works in get_posts())',\n\t\t'include'          => 'post__in (include only works in get_posts())',\n\t\t'exclude'          => 'post__not_in (exclude only works in get_posts())',\n\t);\n\tforeach ( array_keys( $a ) as $key ) {\n\t\tif ( isset( $deprecated[ $key ] ) ) {\n\t\t\t$add( 'warn', \"'{$key}' is not a WP_Query parameter. Use {$deprecated[ $key ]}.\" );\n\t\t} elseif ( is_string( $key ) && ! in_array( $key, $known, true ) ) {\n\t\t\t$close = '';\n\t\t\tforeach ( $known as $k ) {\n\t\t\t\tif ( levenshtein( $key, $k ) <= 2 ) {\n\t\t\t\t\t$close = \" Did you mean '{$k}'?\";\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t}\n\t\t\t$add( 'warn', \"Unknown parameter '{$key}'. WP_Query ignores it.{$close}\" );\n\t\t}\n\t}\n\t$has = function ( $k ) use ( $a ) {\n\t\treturn array_key_exists( $k, $a );\n\t};\n\tif ( $has( 'post__in' ) && is_array( $a['post__in'] ) && empty( $a['post__in'] ) ) {\n\t\t$add( 'warn', 'post__in is an empty array, so it is ignored and every post can match. Check for an empty list before querying.' );\n\t}\n\tif ( ! empty( $a['post__in'] ) && ! empty( $a['post__not_in'] ) ) {\n\t\t$add( 'warn', 'post__in and post__not_in are both set. post__in wins and post__not_in is ignored.' );\n\t}\n\tif ( $has( 'post__not_in' ) && is_string( $a['post__not_in'] ) ) {\n\t\t$add( 'warn', 'post__not_in must be an array; a comma-separated string does not work.' );\n\t}\n\tif ( ! empty( $a['offset'] ) && ! empty( $a['paged'] ) ) {\n\t\t$add( 'warn', 'offset overrides paged, so pagination will not work as expected.' );\n\t}\n\tif ( ! empty( $a['offset'] ) && isset( $a['posts_per_page'] ) && -1 === (int) $a['posts_per_page'] ) {\n\t\t$add( 'warn', 'offset is ignored when posts_per_page is -1.' );\n\t}\n\tforeach ( array( 'post_type', 'post_status' ) as $k ) {\n\t\tif ( $has( $k ) && is_array( $a[ $k ] ) && in_array( 'any', $a[ $k ], true ) ) {\n\t\t\t$add( 'warn', \"'any' cannot be used inside a {$k} array. Pass the string 'any' on its own.\" );\n\t\t}\n\t}\n\tif ( isset( $a['orderby'] ) && is_string( $a['orderby'] ) && preg_match( '/\\bmeta_value(_num)?\\b/', $a['orderby'] ) && empty( $a['meta_key'] ) && empty( $a['meta_query'] ) ) {\n\t\t$add( 'warn', 'Ordering by meta_value needs a meta_key (or a meta_query).' );\n\t}\n\tif ( $has( 'meta_value_num' ) ) {\n\t\t$add( 'warn', \"'meta_value_num' is an orderby value, not a parameter. To filter numerically, use meta_value with meta_type 'NUMERIC'.\" );\n\t}\n\tforeach ( array( 'tax_query' => 'taxonomy', 'meta_query' => 'key', 'date_query' => 'after' ) as $k => $clause_key ) {\n\t\tif ( $has( $k ) && is_array( $a[ $k ] ) && array_key_exists( $clause_key, $a[ $k ] ) ) {\n\t\t\t$add( 'warn', \"{$k} takes an array of clause arrays. Wrap your clause in another array( ... ).\" );\n\t\t}\n\t}\n\tif ( ! empty( $a['meta_query'] ) && is_array( $a['meta_query'] ) ) {\n\t\tarray_walk_recursive_clauses( $a['meta_query'], function ( $clause ) use ( $add ) {\n\t\t\tif ( isset( $clause['value'] ) && is_array( $clause['value'] ) ) {\n\t\t\t\t$cmp = strtoupper( $clause['compare'] ?? 'IN' );\n\t\t\t\tif ( ! in_array( $cmp, array( 'IN', 'NOT IN', 'BETWEEN', 'NOT BETWEEN' ), true ) ) {\n\t\t\t\t\t$add( 'warn', \"meta_query: an array value only works with IN, NOT IN, BETWEEN or NOT BETWEEN, not {$cmp}.\" );\n\t\t\t\t}\n\t\t\t}\n\t\t} );\n\t}\n\t$types = isset( $a['post_type'] ) ? (array) $a['post_type'] : array();\n\tif ( in_array( 'attachment', $types, true ) && ( empty( $a['post_status'] ) || ! array_intersect( (array) $a['post_status'], array( 'inherit', 'any' ) ) ) ) {\n\t\t$add( 'warn', \"Attachments have the status 'inherit'. Add 'post_status' => 'inherit' (or 'any'), or nothing will match.\" );\n\t}\n\tif ( ! empty( $a['no_found_rows'] ) ) {\n\t\t$add( 'info', 'no_found_rows is on, so found_posts and max_num_pages are 0.' );\n\t}\n\treturn $w;\n}\n\nfunction array_walk_recursive_clauses( $q, $cb ) {\n\tforeach ( $q as $k => $v ) {\n\t\tif ( 'relation' === $k || ! is_array( $v ) ) {\n\t\t\tcontinue;\n\t\t}\n\t\tif ( isset( $v['key'] ) || isset( $v['value'] ) || isset( $v['compare'] ) ) {\n\t\t\t$cb( $v );\n\t\t} else {\n\t\t\tarray_walk_recursive_clauses( $v, $cb );\n\t\t}\n\t}\n}\n";
+  const REFERENCE = "<?php\n// Lists IDs and slugs in the sample data so visitors can use them.\nrequire_once '__WP_LOAD__';\n$terms = function ( $tax ) {\n\treturn array_map( function ( $t ) {\n\t\treturn array( 'id' => $t->term_id, 'slug' => $t->slug, 'name' => $t->name, 'count' => $t->count, 'parent' => $t->parent );\n\t}, get_terms( array( 'taxonomy' => $tax, 'hide_empty' => false ) ) );\n};\n$posts = function ( $type ) {\n\treturn array_map( function ( $p ) {\n\t\treturn array( 'id' => $p->ID, 'title' => $p->post_title, 'status' => $p->post_status, 'parent' => $p->post_parent );\n\t}, get_posts( array( 'post_type' => $type, 'post_status' => 'any', 'numberposts' => -1, 'orderby' => 'ID', 'order' => 'ASC' ) ) );\n};\necho '@@QCS@@' . wp_json_encode( array(\n\t'users'    => array_map( function ( $u ) {\n\t\treturn array( 'id' => $u->ID, 'slug' => $u->user_nicename, 'name' => $u->display_name );\n\t}, get_users() ),\n\t'category' => $terms( 'category' ),\n\t'post_tag' => $terms( 'post_tag' ),\n\t'color'    => $terms( 'color' ),\n\t'genre'    => $terms( 'genre' ),\n\t'pages'    => $posts( 'page' ),\n\t'movies'   => $posts( 'movie' ),\n\t'sticky'   => get_option( 'sticky_posts' ),\n\t'meta'     => array( 'price (post, number 5-294)', 'color (post: red, blue, green)', 'featured (post: yes, no)', 'rating (movie, decimal)', 'release_date (movie, YYYY-MM-DD)' ),\n) );\n";
+  const KNOWN = ["attachment_id", "author", "author__in", "author__not_in", "author_name", "cache_results", "cat", "category__and", "category__in", "category__not_in", "category_name", "comment_count", "comment_status", "comments_per_page", "date_query", "day", "exact", "fields", "has_password", "hour", "ignore_sticky_posts", "lazy_load_term_meta", "m", "menu_order", "meta_compare", "meta_compare_key", "meta_key", "meta_query", "meta_type", "meta_type_key", "meta_value", "minute", "monthnum", "name", "no_found_rows", "nopaging", "offset", "order", "orderby", "p", "page", "page_id", "paged", "pagename", "perm", "ping_status", "post__in", "post__not_in", "post_mime_type", "post_name__in", "post_parent", "post_parent__in", "post_parent__not_in", "post_password", "post_status", "post_type", "posts_per_archive_page", "posts_per_page", "s", "search_columns", "second", "sentence", "suppress_filters", "tag", "tag__and", "tag__in", "tag__not_in", "tag_id", "tag_slug__and", "tag_slug__in", "tax_query", "title", "update_menu_item_cache", "update_post_meta_cache", "update_post_term_cache", "w", "year"];
+  const PRESETS = [{"title": "Latest posts", "code": "$args = array(\n  'post_type'      => 'post',\n  'posts_per_page' => 5,\n);"}, {"title": "Posts by an author", "code": "$args = array(\n  'author_name'    => 'jane',\n  'posts_per_page' => 10,\n);"}, {"title": "Category and tag", "code": "$args = array(\n  'category_name' => 'news',\n  'tag'           => 'cooking,baking', // any of these tags\n);"}, {"title": "Taxonomy: movies in a genre", "code": "$args = array(\n  'post_type' => 'movie',\n  'tax_query' => array(\n    array(\n      'taxonomy' => 'genre',\n      'field'    => 'slug',\n      'terms'    => array( 'drama', 'comedy' ),\n    ),\n  ),\n);"}, {"title": "Custom field: price range, cheapest first", "code": "$args = array(\n  'meta_query' => array(\n    'price_clause' => array(\n      'key'     => 'price',\n      'value'   => array( 50, 150 ),\n      'type'    => 'NUMERIC',\n      'compare' => 'BETWEEN',\n    ),\n  ),\n  'orderby' => 'price_clause',\n  'order'   => 'ASC',\n);"}, {"title": "Movies by rating", "code": "$args = array(\n  'post_type' => 'movie',\n  'meta_key'  => 'rating',\n  'orderby'   => 'meta_value_num',\n  'order'     => 'DESC',\n);"}, {"title": "Date range", "code": "$args = array(\n  'date_query' => array(\n    array(\n      'after'     => '2025-01-01',\n      'before'    => '2025-12-31',\n      'inclusive' => true,\n    ),\n  ),\n  'ignore_sticky_posts' => true,\n);"}, {"title": "Search titles only", "code": "$args = array(\n  's'              => 'pillow -sofa',\n  'search_columns' => array( 'post_title' ),\n);"}, {"title": "Child pages in menu order", "code": "$contact = get_page_by_path( 'contact' );\n\n$args = array(\n  'post_type'   => 'page',\n  'post_parent' => $contact->ID,\n  'orderby'     => 'menu_order',\n  'order'       => 'ASC',\n);"}, {"title": "Page 2 of the archive", "code": "$args = array(\n  'posts_per_page' => 5,\n  'paged'          => 2,\n);"}, {"title": "Drafts and scheduled posts (run as Admin)", "code": "$args = array(\n  'post_status' => array( 'draft', 'future', 'private' ),\n);"}, {"title": "Images from the media library", "code": "$args = array(\n  'post_type'      => 'attachment',\n  'post_status'    => 'inherit',\n  'post_mime_type' => 'image',\n);"}, {"title": "Lean query: IDs only", "code": "$args = array(\n  'fields'                 => 'ids',\n  'posts_per_page'         => 10,\n  'no_found_rows'          => true,\n  'update_post_meta_cache' => false,\n  'update_post_term_cache' => false,\n);"}, {"title": "Common mistakes", "code": "// Run this to see what the playground warns about.\n$args = array(\n  'post_typ'   => 'post',          // typo\n  'showposts'  => 3,               // old parameter name\n  'post__in'   => array(),         // empty: matches everything\n  'offset'     => 2,\n  'paged'      => 2,               // ignored because of offset\n  'meta_query' => array(           // missing the outer array\n    'key'   => 'price',\n    'value' => 100,\n  ),\n);"}];
+  const WP_LOAD = '/wordpress/wp-load.php';
+  const MARK = '@@QCS@@';
 
-    const $ = (id) => document.getElementById(id);
-    const editor = $('editor'), gutter = $('gutter'), runBtn = $('run');
-    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
-    const b64 = (str) => btoa(String.fromCharCode(...new TextEncoder().encode(str)));
-    const b64url = (str) => b64(str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-    const unb64url = (s) => new TextDecoder().decode(Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/')), (c) => c.charCodeAt(0)));
+  const $ = (id) => document.getElementById(id);
+  const editor = $('editor'), gutter = $('gutter'), runBtn = $('run');
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const b64 = (str) => btoa(String.fromCharCode(...new TextEncoder().encode(str)));
+  const b64url = (str) => b64(str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  const unb64url = (s) => new TextDecoder().decode(Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/')), (c) => c.charCodeAt(0)));
 
-    // ---------- Editor ----------
-    function syncGutter() {
-      const lines = editor.value.split('\n').length;
-      let out = '';
-      for (let i = 1; i <= lines; i++) out += i + '\n';
-      gutter.textContent = out;
-      gutter.scrollTop = editor.scrollTop;
-    }
-    editor.addEventListener('input', syncGutter);
-    editor.addEventListener('scroll', () => {gutter.scrollTop = editor.scrollTop;});
-    editor.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {e.preventDefault(); run(); return;}
-      if (e.key === 'Tab' && !e.shiftKey) {
-        e.preventDefault();
-        const s = editor.selectionStart, end = editor.selectionEnd;
-        editor.setRangeText('  ', s, end, 'end');
-        syncGutter();
-      }
-    });
-
-    const presetSel = $('preset');
-    PRESETS.forEach((p, i) => presetSel.add(new Option(p.title, String(i))));
-    presetSel.add(new Option('Custom', 'custom'));
-    presetSel.addEventListener('change', () => {
-      if (presetSel.value === 'custom') return;
-      editor.value = PRESETS[+presetSel.value].code;
+  // ---------- Editor ----------
+  function syncGutter() {
+    const lines = editor.value.split('\n').length;
+    let out = '';
+    for (let i = 1; i <= lines; i++) out += i + '\n';
+    gutter.textContent = out;
+    gutter.scrollTop = editor.scrollTop;
+  }
+  editor.addEventListener('input', syncGutter);
+  editor.addEventListener('scroll', () => { gutter.scrollTop = editor.scrollTop; });
+  editor.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); run(); return; }
+    if (e.key === 'Tab' && !e.shiftKey) {
+      e.preventDefault();
+      const s = editor.selectionStart, end = editor.selectionEnd;
+      editor.setRangeText('  ', s, end, 'end');
       syncGutter();
-      if (ready) run();
-    });
-    editor.addEventListener('input', () => {presetSel.value = 'custom';});
-    $('reset').addEventListener('click', () => {presetSel.value = '0'; presetSel.dispatchEvent(new Event('change'));});
-    $('user').addEventListener('change', () => {if (ready) run();});
-
-    const hashParams = new URLSearchParams(location.hash.slice(1));
-    const fromHash = hashParams.get('code');
-    if (hashParams.get('user') === '1') $('user').value = '1';
-    if (fromHash) {
-      try {editor.value = unb64url(fromHash); presetSel.value = 'custom';} catch (e) {editor.value = PRESETS[0].code;}
-    } else {
-      editor.value = PRESETS[0].code;
     }
+  });
+
+  const presetSel = $('preset');
+  PRESETS.forEach((p, i) => presetSel.add(new Option(p.title, String(i))));
+  presetSel.add(new Option('Custom', 'custom'));
+  presetSel.addEventListener('change', () => {
+    if (presetSel.value === 'custom') return;
+    editor.value = PRESETS[+presetSel.value].code;
     syncGutter();
+    if (ready) run();
+  });
+  editor.addEventListener('input', () => { presetSel.value = 'custom'; });
+  $('reset').addEventListener('click', () => { presetSel.value = '0'; presetSel.dispatchEvent(new Event('change')); });
+  $('user').addEventListener('change', () => { if (ready) run(); });
 
-    $('share').addEventListener('click', async () => {
-      const url = location.href.split('#')[0] + '#code=' + b64url(editor.value);
-      history.replaceState(null, '', url);
-      try {await navigator.clipboard.writeText(url); flash($('share'), 'Link copied');} catch (e) {flash($('share'), 'Link in address bar');}
+  const hashParams = new URLSearchParams(location.hash.slice(1));
+  const fromHash = hashParams.get('code');
+  if (hashParams.get('user') === '1') $('user').value = '1';
+  if (fromHash) {
+    try { editor.value = unb64url(fromHash); presetSel.value = 'custom'; } catch (e) { editor.value = PRESETS[0].code; }
+  } else {
+    editor.value = PRESETS[0].code;
+  }
+  syncGutter();
+
+  $('share').addEventListener('click', async () => {
+    const url = location.href.split('#')[0] + '#code=' + b64url(editor.value);
+    history.replaceState(null, '', url);
+    try { await navigator.clipboard.writeText(url); flash($('share'), 'Link copied'); } catch (e) { flash($('share'), 'Link in address bar'); }
+  });
+  function flash(btn, text) {
+    const old = btn.textContent; btn.textContent = text; btn.classList.add('done');
+    setTimeout(() => { btn.textContent = old; btn.classList.remove('done'); }, 1600);
+  }
+
+  // ---------- Tabs ----------
+  const tabs = document.querySelectorAll('.pg-tabs [role=tab]');
+  function showTab(name) {
+    tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.tab === name)));
+    document.querySelectorAll('.pg-panel').forEach((p) => {
+      const on = p.dataset.panel === name;
+      if (p.dataset.panel === 'site') p.classList.toggle('offscreen', !on); // keep the iframe alive
+      else p.hidden = !on;
     });
-    function flash(btn, text) {
-      const old = btn.textContent; btn.textContent = text; btn.classList.add('done');
-      setTimeout(() => {btn.textContent = old; btn.classList.remove('done');}, 1600);
-    }
+  }
+  tabs.forEach((t) => t.addEventListener('click', () => showTab(t.dataset.tab)));
+  showTab('results');
 
-    // ---------- Tabs ----------
-    const tabs = document.querySelectorAll('.pg-tabs [role=tab]');
-    function showTab(name) {
-      tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.tab === name)));
-      document.querySelectorAll('.pg-panel').forEach((p) => {
-        const on = p.dataset.panel === name;
-        if (p.dataset.panel === 'site') p.classList.toggle('offscreen', !on); // keep the iframe alive
-        else p.hidden = !on;
+  document.querySelectorAll('.copy').forEach((btn) => btn.addEventListener('click', () => {
+    navigator.clipboard.writeText(btn.closest('.code').querySelector('code').innerText).then(() => flash(btn, 'Copied'));
+  }));
+
+  // ---------- Boot ----------
+  let client = null, ready = false;
+  const bootEl = $('boot'), bootText = $('boot-text');
+  function setBoot(state, text) { bootEl.dataset.state = state; bootText.textContent = text; }
+
+  // Run PHP one request at a time.
+  let queue = Promise.resolve();
+  function phpRun(code) {
+    const next = queue.then(() => phpRunNow(code));
+    queue = next.catch(() => {});
+    return next;
+  }
+  async function phpRunNow(code) {
+    try {
+      const res = await client.run({ code });
+      return res.text;
+    } catch (err) {
+      const text = err && err.response && err.response.text;
+      if (text) return text;
+      throw err;
+    }
+  }
+  function parse(text) {
+    const at = text.lastIndexOf(MARK);
+    if (at === -1) throw new Error(text.trim() || 'WordPress returned no output.');
+    return { pre: text.slice(0, at).trim(), data: JSON.parse(text.slice(at + MARK.length)) };
+  }
+
+  async function boot() {
+    setBoot('loading', 'Starting WordPress… the first start downloads about 30 MB');
+    try {
+      const { startPlaygroundWeb } = await import('https://playground.wordpress.net/client/index.js');
+      let step = 0;
+      client = await startPlaygroundWeb({
+        iframe: $('wp'),
+        remoteUrl: 'https://playground.wordpress.net/remote.html',
+        blueprint: {
+          landingPage: '/',
+          preferredVersions: { php: '8.3', wp: 'latest' },
+          steps: [
+            { step: 'writeFile', path: '/wordpress/wp-content/mu-plugins/wp-query-cheat-sheet.php', data: MU_PLUGIN },
+            { step: 'runPHP', code: SEED.replace('__WP_LOAD__', WP_LOAD) },
+          ],
+        },
+        onBlueprintStepCompleted: () => { step++; setBoot('loading', step === 1 ? 'Adding sample content…' : 'Almost ready…'); },
       });
+      await client.isReady();
+      ready = true;
+      runBtn.disabled = false;
+      setBoot('ready', 'WordPress ready');
+      loadReference();
+      run();
+    } catch (err) {
+      console.error(err);
+      setBoot('error', 'WordPress could not start');
+      $('messages').innerHTML = '<div class="pg-msg error"><strong>Could not start WordPress Playground<\/strong><p>' +
+        esc(err && err.message ? err.message : String(err)) +
+        '<\/p><p>The playground needs a recent Chrome, Edge, Firefox or Safari, and access to playground.wordpress.net. Private browsing modes can block it.<\/p><\/div>';
     }
-    tabs.forEach((t) => t.addEventListener('click', () => showTab(t.dataset.tab)));
-    showTab('results');
+  }
 
-    document.querySelectorAll('.copy').forEach((btn) => btn.addEventListener('click', () => {
-      navigator.clipboard.writeText(btn.closest('.code').querySelector('code').innerText).then(() => flash(btn, 'Copied'));
-    }));
-
-    // ---------- Boot ----------
-    let client = null, ready = false;
-    const bootEl = $('boot'), bootText = $('boot-text');
-    function setBoot(state, text) {bootEl.dataset.state = state; bootText.textContent = text;}
-
-    // Run PHP one request at a time.
-    let queue = Promise.resolve();
-    function phpRun(code) {
-      const next = queue.then(() => phpRunNow(code));
-      queue = next.catch(() => { });
-      return next;
+  // ---------- Run ----------
+  async function run() {
+    if (!ready) return;
+    runBtn.disabled = true;
+    runBtn.classList.add('busy');
+    const code = RUNNER
+      .replace('__WP_LOAD__', WP_LOAD)
+      .replace('__USER__', $('user').value)
+      .replace('__CODE__', b64(editor.value))
+      .replace('__KNOWN__', b64(JSON.stringify(KNOWN)));
+    try {
+      const { pre, data } = parse(await phpRun(code));
+      render(data, pre);
+    } catch (err) {
+      render({ ok: false, error: err.message || String(err), notices: [] }, '');
+    } finally {
+      runBtn.disabled = false;
+      runBtn.classList.remove('busy');
     }
-    async function phpRunNow(code) {
-      try {
-        const res = await client.run({code});
-        return res.text;
-      } catch (err) {
-        const text = err && err.response && err.response.text;
-        if (text) return text;
-        throw err;
-      }
-    }
-    function parse(text) {
-      const at = text.lastIndexOf(MARK);
-      if (at === -1) throw new Error(text.trim() || 'WordPress returned no output.');
-      return {pre: text.slice(0, at).trim(), data: JSON.parse(text.slice(at + MARK.length))};
-    }
+  }
+  runBtn.addEventListener('click', run);
 
-    async function boot() {
-      setBoot('loading', 'Starting WordPress… the first start downloads about 30 MB');
-      try {
-        const {startPlaygroundWeb} = await import('https://playground.wordpress.net/client/index.js');
-        let step = 0;
-        client = await startPlaygroundWeb({
-          iframe: $('wp'),
-          remoteUrl: 'https://playground.wordpress.net/remote.html',
-          blueprint: {
-            landingPage: '/',
-            preferredVersions: {php: '8.3', wp: 'latest'},
-            steps: [
-              {step: 'writeFile', path: '/wordpress/wp-content/mu-plugins/wp-query-cheat-sheet.php', data: MU_PLUGIN},
-              {step: 'runPHP', code: SEED.replace('__WP_LOAD__', WP_LOAD)},
-            ],
-          },
-          onBlueprintStepCompleted: () => {step++; setBoot('loading', step === 1 ? 'Adding sample content…' : 'Almost ready…');},
-        });
-        await client.isReady();
-        ready = true;
-        runBtn.disabled = false;
-        setBoot('ready', 'WordPress ready');
-        loadReference();
-        run();
-      } catch (err) {
-        console.error(err);
-        setBoot('error', 'WordPress could not start');
-        $('messages').innerHTML = '<div class="pg-msg error"><strong>Could not start WordPress Playground<\/strong><p>' +
-          esc(err && err.message ? err.message : String(err)) +
-          '<\/p><p>The playground needs a recent Chrome, Edge, Firefox or Safari, and access to playground.wordpress.net. Private browsing modes can block it.<\/p><\/div>';
-      }
-    }
+  function render(d, pre) {
+    const msgs = [];
+    if (!d.ok) msgs.push(`<div class="pg-msg error"><strong>Error<\/strong><p>${esc(d.error)}<\/p><\/div>`);
+    (d.warnings || []).forEach((w) => msgs.push(`<div class="pg-msg ${w.level === 'info' ? 'info' : 'warn'}"><strong>${w.level === 'info' ? 'Note' : 'Watch out'}<\/strong><p>${code(w.text)}<\/p><\/div>`));
+    (d.notices || []).forEach((n) => msgs.push(`<div class="pg-msg warn"><strong>${n.type === 'wp' ? 'WordPress notice' : 'PHP notice'}<\/strong><p>${esc(n.text)}<\/p><\/div>`));
+    if (pre) msgs.push(`<div class="pg-msg info"><strong>Output<\/strong><pre>${esc(pre.slice(0, 2000))}<\/pre><\/div>`);
+    $('messages').innerHTML = msgs.join('');
 
-    // ---------- Run ----------
-    async function run() {
-      if (!ready) return;
-      runBtn.disabled = true;
-      runBtn.classList.add('busy');
-      const code = RUNNER
-        .replace('__WP_LOAD__', WP_LOAD)
-        .replace('__USER__', $('user').value)
-        .replace('__CODE__', b64(editor.value))
-        .replace('__KNOWN__', b64(JSON.stringify(KNOWN)));
-      try {
-        const {pre, data} = parse(await phpRun(code));
-        render(data, pre);
-      } catch (err) {
-        render({ok: false, error: err.message || String(err), notices: []}, '');
-      } finally {
-        runBtn.disabled = false;
-        runBtn.classList.remove('busy');
-      }
-    }
-    runBtn.addEventListener('click', run);
+    const stats = $('stats');
+    stats.hidden = !d.ok;
+    if (!d.ok) return;
+    $('s-found').textContent = d.found_posts;
+    $('s-count').textContent = d.post_count;
+    $('s-pages').textContent = d.max_num_pages;
+    $('s-ms').textContent = d.ms === null ? '–' : d.ms;
 
-    function render(d, pre) {
-      const msgs = [];
-      if (!d.ok) msgs.push(`<div class="pg-msg error"><strong>Error<\/strong><p>${esc(d.error)}<\/p><\/div>`);
-      (d.warnings || []).forEach((w) => msgs.push(`<div class="pg-msg ${w.level === 'info' ? 'info' : 'warn'}"><strong>${w.level === 'info' ? 'Note' : 'Watch out'}<\/strong><p>${code(w.text)}<\/p><\/div>`));
-      (d.notices || []).forEach((n) => msgs.push(`<div class="pg-msg warn"><strong>${n.type === 'wp' ? 'WordPress notice' : 'PHP notice'}<\/strong><p>${esc(n.text)}<\/p><\/div>`));
-      if (pre) msgs.push(`<div class="pg-msg info"><strong>Output<\/strong><pre>${esc(pre.slice(0, 2000))}<\/pre><\/div>`);
-      $('messages').innerHTML = msgs.join('');
+    $('results').innerHTML = renderRows(d);
+    $('sql').innerHTML = formatSql(d.sql || '');
+    $('vars').textContent = JSON.stringify(d.query_vars, null, 2);
+  }
 
-      const stats = $('stats');
-      stats.hidden = !d.ok;
-      if (!d.ok) return;
-      $('s-found').textContent = d.found_posts;
-      $('s-count').textContent = d.post_count;
-      $('s-pages').textContent = d.max_num_pages;
-      $('s-ms').textContent = d.ms === null ? '–' : d.ms;
+  // Wrap 'quoted' strings and snake_case names in <code>, in one pass so tags never nest.
+  function code(text) {
+    return esc(text).replace(/&#39;([^&]+?)&#39;|\b([a-z]+(?:__?[a-z]+)+)\b/g, (m, quoted, name) =>
+      quoted !== undefined ? `<code>'${quoted}'<\/code>` : `<code>${name}<\/code>`);
+  }
 
-      $('results').innerHTML = renderRows(d);
-      $('sql').innerHTML = formatSql(d.sql || '');
-      $('vars').textContent = JSON.stringify(d.query_vars, null, 2);
-    }
-
-    // Wrap 'quoted' strings and snake_case names in <code>, in one pass so tags never nest.
-    function code(text) {
-      return esc(text).replace(/&#39;([^&]+?)&#39;|\b([a-z]+(?:__?[a-z]+)+)\b/g, (m, quoted, name) =>
-        quoted !== undefined ? `<code>'${quoted}'<\/code>` : `<code>${name}<\/code>`);
-    }
-
-    function renderRows(d) {
-      if (!d.rows.length) return '<p class="pg-empty">No posts matched.<\/p>';
-      const extra = d.post_count > d.rows.length ? `<p class="pg-hint">Showing the first ${d.rows.length} of ${d.post_count}.<\/p>` : '';
-      const sticky = d.rows.some((r) => r.sticky) ? '<p class="pg-hint"><span class="pill sticky">sticky<\/span> posts are added on top of <code>posts_per_page<\/code> unless <code>ignore_sticky_posts<\/code> is set.<\/p>' : '';
-      const raw = d.raw ? `<p class="pg-hint">With <code>'fields' =&gt; '${esc(d.fields)}'<\/code>, <code>$query-&gt;posts<\/code> holds:<\/p><figure class="code"><pre><code>${esc(JSON.stringify(d.raw.length > 20 ? d.raw.slice(0, 20) : d.raw))}${d.raw.length > 20 ? ' …' : ''}<\/code><\/pre><\/figure>` : '';
-      const rows = d.rows.map((r) => `<tr>
+  function renderRows(d) {
+    if (!d.rows.length) return '<p class="pg-empty">No posts matched.<\/p>';
+    const extra = d.post_count > d.rows.length ? `<p class="pg-hint">Showing the first ${d.rows.length} of ${d.post_count}.<\/p>` : '';
+    const sticky = d.rows.some((r) => r.sticky) ? '<p class="pg-hint"><span class="pill sticky">sticky<\/span> posts are added on top of <code>posts_per_page<\/code> unless <code>ignore_sticky_posts<\/code> is set.<\/p>' : '';
+    const raw = d.raw ? `<p class="pg-hint">With <code>'fields' =&gt; '${esc(d.fields)}'<\/code>, <code>$query-&gt;posts<\/code> holds:<\/p><figure class="code"><pre><code>${esc(JSON.stringify(d.raw.length > 20 ? d.raw.slice(0, 20) : d.raw))}${d.raw.length > 20 ? ' …' : ''}<\/code><\/pre><\/figure>` : '';
+    const rows = d.rows.map((r) => `<tr>
       <td class="num">${r.ID}<\/td>
       <td class="title">${esc(r.title || '(no title)')}${r.sticky ? ' <span class="pill sticky">sticky<\/span>' : ''}<\/td>
       <td><span class="pill">${esc(r.type)}<\/span><\/td>
@@ -332,34 +329,34 @@
       <td class="num opt">${r.menu_order || ''}<\/td>
       <td class="num opt">${r.comment_count}<\/td>
     <\/tr>`).join('');
-      return raw + sticky + `<div class="table-wrap"><table class="pg-table"><thead><tr>
+    return raw + sticky + `<div class="table-wrap"><table class="pg-table"><thead><tr>
       <th>ID<\/th><th>Title<\/th><th>Type<\/th><th>Status<\/th><th>Date<\/th><th class="opt">Author<\/th><th class="opt">Parent<\/th><th class="opt">Order<\/th><th class="opt">Comments<\/th>
     <\/tr><\/thead><tbody>${rows}<\/tbody><\/table><\/div>` + extra;
-    }
+  }
 
-    function formatSql(sql) {
-      let s = sql.replace(/\s+/g, ' ').trim();
-      s = s.replace(/ (FROM|WHERE|INNER JOIN|LEFT JOIN|GROUP BY|ORDER BY|LIMIT) /g, '\n$1 ');
-      s = s.replace(/ (AND|OR) \(/g, '\n  $1 (');
-      // One pass over the raw text, escaping each token, so highlighting never splits an entity.
-      const token = /('(?:[^'\\]|\\.)*')|\b(SELECT|SQL_CALC_FOUND_ROWS|DISTINCT|FROM|WHERE|INNER JOIN|LEFT JOIN|JOIN|ON|AND|OR|NOT|IN|LIKE|BETWEEN|AS|CAST|GROUP BY|ORDER BY|ASC|DESC|LIMIT|IS NULL|IS NOT NULL|EXISTS|SIGNED|CHAR|DECIMAL|DATE)\b|\b(\d+(?:\.\d+)?)\b/g;
-      let out = '', last = 0, m;
-      while ((m = token.exec(s))) {
-        out += esc(s.slice(last, m.index));
-        const cls = m[1] !== undefined ? 's1' : m[2] !== undefined ? 'k' : 'mi';
-        out += `<span class="${cls}">${esc(m[0])}<\/span>`;
-        last = token.lastIndex;
-      }
-      return out + esc(s.slice(last));
+  function formatSql(sql) {
+    let s = sql.replace(/\s+/g, ' ').trim();
+    s = s.replace(/ (FROM|WHERE|INNER JOIN|LEFT JOIN|GROUP BY|ORDER BY|LIMIT) /g, '\n$1 ');
+    s = s.replace(/ (AND|OR) \(/g, '\n  $1 (');
+    // One pass over the raw text, escaping each token, so highlighting never splits an entity.
+    const token = /('(?:[^'\\]|\\.)*')|\b(SELECT|SQL_CALC_FOUND_ROWS|DISTINCT|FROM|WHERE|INNER JOIN|LEFT JOIN|JOIN|ON|AND|OR|NOT|IN|LIKE|BETWEEN|AS|CAST|GROUP BY|ORDER BY|ASC|DESC|LIMIT|IS NULL|IS NOT NULL|EXISTS|SIGNED|CHAR|DECIMAL|DATE)\b|\b(\d+(?:\.\d+)?)\b/g;
+    let out = '', last = 0, m;
+    while ((m = token.exec(s))) {
+      out += esc(s.slice(last, m.index));
+      const cls = m[1] !== undefined ? 's1' : m[2] !== undefined ? 'k' : 'mi';
+      out += `<span class="${cls}">${esc(m[0])}<\/span>`;
+      last = token.lastIndex;
     }
+    return out + esc(s.slice(last));
+  }
 
-    // ---------- Sample data ----------
-    async function loadReference() {
-      try {
-        const {data} = parse(await phpRun(REFERENCE.replace('__WP_LOAD__', WP_LOAD)));
-        const terms = (list) => list.map((t) => `<li><code>${t.id}<\/code> ${esc(t.name)} <span class="muted">${esc(t.slug)}${t.parent ? ', child of ' + t.parent : ''} · ${t.count}<\/span><\/li>`).join('');
-        const posts = (list) => list.map((p) => `<li><code>${p.id}<\/code> ${esc(p.title)} <span class="muted">${p.status !== 'publish' ? esc(p.status) : ''}${p.parent ? ' child of ' + p.parent : ''}<\/span><\/li>`).join('');
-        $('data').innerHTML = `
+  // ---------- Sample data ----------
+  async function loadReference() {
+    try {
+      const { data } = parse(await phpRun(REFERENCE.replace('__WP_LOAD__', WP_LOAD)));
+      const terms = (list) => list.map((t) => `<li><code>${t.id}<\/code> ${esc(t.name)} <span class="muted">${esc(t.slug)}${t.parent ? ', child of ' + t.parent : ''} · ${t.count}<\/span><\/li>`).join('');
+      const posts = (list) => list.map((p) => `<li><code>${p.id}<\/code> ${esc(p.title)} <span class="muted">${p.status !== 'publish' ? esc(p.status) : ''}${p.parent ? ' child of ' + p.parent : ''}<\/span><\/li>`).join('');
+      $('data').innerHTML = `
         <p class="pg-hint">IDs and slugs you can use in your queries. There are 24 posts (including drafts, a private, a scheduled and a password-protected post), pages, movies and attachments.<\/p>
         <div class="pg-data">
           <div><h3>Authors<\/h3><ul>${data.users.map((u) => `<li><code>${u.id}<\/code> ${esc(u.name)} <span class="muted">${esc(u.slug)}<\/span><\/li>`).join('')}<\/ul><\/div>
@@ -371,13 +368,12 @@
           <div><h3>Post type <code>movie<\/code><\/h3><ul>${posts(data.movies)}<\/ul><\/div>
           <div><h3>Custom fields<\/h3><ul>${data.meta.map((m) => `<li>${code(m)}<\/li>`).join('')}<\/ul><p class="muted">Sticky post ID: ${data.sticky.join(', ')}<\/p><\/div>
         <\/div>`;
-      } catch (err) {
-        $('data').innerHTML = `<p class="pg-empty">Could not load the sample data: ${esc(err.message)}<\/p>`;
-      }
+    } catch (err) {
+      $('data').innerHTML = `<p class="pg-empty">Could not load the sample data: ${esc(err.message)}<\/p>`;
     }
+  }
 
-    boot();
+  boot();
   </script>
 </body>
-
 </html>

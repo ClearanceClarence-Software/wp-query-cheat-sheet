@@ -1,4 +1,9 @@
-# WP_Query Cheat Sheet
+<h1>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.svg">
+    <img src="assets/logo-light.svg" alt="WP_Query Cheat Sheet" height="56">
+  </picture>
+</h1>
 
 Every parameter you can pass to `new WP_Query()`, grouped by what it does, with a copyable example for each group. Checked against WordPress 7.1.
 
